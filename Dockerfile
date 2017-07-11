@@ -1,7 +1,10 @@
-FROM composer/composer
+FROM composer/composer:1.1-alpine
 MAINTAINER Angel Alvarado <eko3alpha>
 
-RUN composer global require 'edgedesign/phpqa:v1.10.0' --update-no-dev "symfony/console:~2.8"
+COPY composer.json /app/
+RUN cd /app \
+    && composer global require hirak/prestissimo \
+    && composer install
 
-ENTRYPOINT ["phpqa"]
+ENTRYPOINT ["/app/vendor/edgedesign/phpqa/phpqa"]
 CMD ["--help"]
