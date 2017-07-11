@@ -1,0 +1,11 @@
+{
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/paolomainardi/phpqa.git"
+        }
+    ],
+    "require": {
+        "edgedesign/phpqa": "dev-feature/make-php-extensions-configurable"
+    }
+}
