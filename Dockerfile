@@ -1,10 +1,10 @@
 FROM composer/composer:1.1-alpine
 MAINTAINER Angel Alvarado <eko3alpha>
 
-COPY composer.json /app/
-RUN cd /app \
+COPY composer.json /phpqa/
+RUN cd /phpqa \
     && composer global require hirak/prestissimo \
     && composer install
 
-ENTRYPOINT ["/app/vendor/edgedesign/phpqa/phpqa"]
+ENTRYPOINT ["/phpqa/vendor/edgedesign/phpqa/phpqa"]
 CMD ["--help"]
